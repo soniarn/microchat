@@ -1,15 +1,15 @@
-radio.onReceivedString(function (receivedString) {
-    if (input.buttonIsPressed(Button.A)) {
-        basic.showIcon(IconNames.Happy)
-    } else if (input.buttonIsPressed(Button.B)) {
-        basic.showIcon(IconNames.Yes)
-    }
+radio.onReceivedNumber(function (receivedNumber) {
+    basic.showIcon(IconNames.Yes)
 })
-radio.setGroup(2)
-if (input.buttonIsPressed(Button.A)) {
+input.onButtonPressed(Button.A, function () {
     basic.clearScreen()
     radio.sendString("smile")
-} else if (input.buttonIsPressed(Button.B)) {
+})
+radio.onReceivedString(function (receivedString) {
+    basic.showIcon(IconNames.Happy)
+})
+input.onButtonPressed(Button.B, function () {
     basic.clearScreen()
     radio.sendString("sí")
-}
+})
+radio.setGroup(2)
